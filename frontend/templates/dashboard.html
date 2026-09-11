@@ -4,40 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard · Document Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">Document Intelligence
-      <small>Extraction, validation &amp; API platform</small>
-    </div>
-    <nav>
-      <a href="/">Upload</a>
-      <a href="/dashboard">Dashboard</a>
-      <a href="/docs">API docs</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="card">
-      <h1>Processed documents</h1>
-      <p class="lede">All documents processed by this service, most recent first.</p>
-      <table id="doc-table">
-        <thead>
-          <tr>
-            <th>Document name</th>
-            <th>Type</th>
-            <th>Status</th>
-            <th>Processed at</th>
-          </tr>
-        </thead>
-        <tbody id="doc-table-body"></tbody>
-      </table>
-      <div class="empty-state" id="empty-state" style="display:none;">
-        No documents processed yet. <a href="/">Upload one</a> to get started.
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">DI</span>
+        <span class="brand-name">Document<br />Intelligence</span>
       </div>
-    </div>
-  </main>
+      <nav class="side-nav">
+        <a href="/">Upload</a>
+        <a href="/dashboard" class="active">Dashboard</a>
+        <a href="/docs" target="_blank" rel="noopener">API docs</a>
+      </nav>
+      <div class="sidebar-foot">
+        <span class="status-dot"></span> API operational
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="page-head">
+        <h1>Processed documents</h1>
+        <p class="lede">Every document run through this service, most recent first.</p>
+      </div>
+
+      <section class="card table-card">
+        <table id="doc-table">
+          <thead>
+            <tr>
+              <th>Document</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Processed</th>
+            </tr>
+          </thead>
+          <tbody id="doc-table-body"></tbody>
+        </table>
+        <div class="empty-state" id="empty-state" style="display:none;">
+          Nothing processed yet. <a href="/">Upload a document</a> to get started.
+        </div>
+      </section>
+    </main>
+  </div>
 
   <script src="/static/js/app.js"></script>
 </body>

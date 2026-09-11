@@ -4,52 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">Document Intelligence
-      <small>Extraction, validation &amp; API platform</small>
-    </div>
-    <nav>
-      <a href="/">Upload</a>
-      <a href="/dashboard">Dashboard</a>
-      <a href="/docs">API docs</a>
-    </nav>
-  </header>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">DI</span>
+        <span class="brand-name">Document<br />Intelligence</span>
+      </div>
+      <nav class="side-nav">
+        <a href="/" class="active">Upload</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/docs" target="_blank" rel="noopener">API docs</a>
+      </nav>
+      <div class="sidebar-foot">
+        <span class="status-dot"></span> API operational
+      </div>
+    </aside>
 
-  <main>
-    <div class="card">
-      <h1>Process a document</h1>
-      <p class="lede">Upload an invoice, balance sheet, profit &amp; loss statement, or cash flow statement as a PDF, JPG or PNG (up to 3 pages).</p>
+    <main class="content">
+      <div class="page-head">
+        <h1>Process a document</h1>
+        <p class="lede">Upload an invoice, balance sheet, profit &amp; loss statement, or cash flow statement as a PDF, JPG or PNG. Up to 3 pages.</p>
+      </div>
 
-      <form id="upload-form">
-        <div class="upload-row">
-          <div class="field">
-            <label for="document_type">Document type</label>
-            <select id="document_type" name="document_type" required>
-              <option value="invoice">Invoice</option>
-              <option value="balance_sheet">Balance sheet</option>
-              <option value="profit_and_loss">Profit &amp; loss</option>
-              <option value="cash_flow_statement">Cash flow statement</option>
-            </select>
+      <section class="card">
+        <form id="upload-form">
+          <div class="upload-row">
+            <div class="field">
+              <label for="document_type">Document type</label>
+              <select id="document_type" name="document_type" required>
+                <option value="invoice">Invoice</option>
+                <option value="balance_sheet">Balance sheet</option>
+                <option value="profit_and_loss">Profit &amp; loss</option>
+                <option value="cash_flow_statement">Cash flow statement</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="file">File (PDF / JPG / PNG)</label>
+              <input type="file" id="file" name="file" accept=".pdf,.jpg,.jpeg,.png" required />
+            </div>
+            <button type="submit" id="submit-btn">Process document</button>
           </div>
-          <div class="field">
-            <label for="file">File (PDF / JPG / PNG)</label>
-            <input type="file" id="file" name="file" accept=".pdf,.jpg,.jpeg,.png" required />
-          </div>
-          <button type="submit" id="submit-btn">Process document</button>
-        </div>
-        <div class="status-line" id="status-line"></div>
-      </form>
-    </div>
+          <div class="status-line" id="status-line"></div>
+        </form>
+      </section>
 
-    <div class="card" id="result-card" style="display:none;">
-      <h2>Result</h2>
-      <p class="lede" id="result-summary"></p>
-      <p><a id="result-link" href="#">View full result →</a></p>
-    </div>
-  </main>
+      <section class="card" id="result-card" style="display:none;">
+        <h2>Result</h2>
+        <p class="lede" id="result-summary"></p>
+        <p><a id="result-link" class="text-link" href="#">View full result</a></p>
+      </section>
+    </main>
+  </div>
 
   <script src="/static/js/app.js"></script>
 </body>

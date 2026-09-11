@@ -4,58 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document result · Document Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">Document Intelligence
-      <small>Extraction, validation &amp; API platform</small>
-    </div>
-    <nav>
-      <a href="/">Upload</a>
-      <a href="/dashboard">Dashboard</a>
-      <a href="/docs">API docs</a>
-    </nav>
-  </header>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">DI</span>
+        <span class="brand-name">Document<br />Intelligence</span>
+      </div>
+      <nav class="side-nav">
+        <a href="/">Upload</a>
+        <a href="/dashboard" class="active">Dashboard</a>
+        <a href="/docs" target="_blank" rel="noopener">API docs</a>
+      </nav>
+      <div class="sidebar-foot">
+        <span class="status-dot"></span> API operational
+      </div>
+    </aside>
 
-  <main>
-    <a href="/dashboard" class="back-link">← Back to dashboard</a>
+    <main class="content">
+      <a href="/dashboard" class="back-link">‹ Back to dashboard</a>
 
-    <div class="card">
-      <h1 id="doc-title">Loading…</h1>
-      <p class="lede" id="doc-subtitle"></p>
-    </div>
+      <section class="card">
+        <h1 id="doc-title">Loading…</h1>
+        <p class="lede" id="doc-subtitle"></p>
+      </section>
 
-    <div class="card">
-      <h2>Extracted fields</h2>
-      <dl class="kv" id="extracted-fields"></dl>
-    </div>
+      <section class="card">
+        <h2>Extracted fields</h2>
+        <dl class="kv" id="extracted-fields"></dl>
+      </section>
 
-    <div class="card" id="line-items-card" style="display:none;">
-      <h2>Line items / table</h2>
-      <table id="line-items-table">
-        <thead><tr id="line-items-head"></tr></thead>
-        <tbody id="line-items-body"></tbody>
-      </table>
-    </div>
+      <section class="card" id="line-items-card" style="display:none;">
+        <h2>Line items</h2>
+        <table id="line-items-table">
+          <thead><tr id="line-items-head"></tr></thead>
+          <tbody id="line-items-body"></tbody>
+        </table>
+      </section>
 
-    <div class="card">
-      <h2>Financial validation</h2>
-      <table>
-        <thead>
-          <tr><th>Check</th><th>Formula</th><th>Calculated</th><th>Reported</th><th>Variance</th><th>Status</th></tr>
-        </thead>
-        <tbody id="checks-body" class="checks-table"></tbody>
-      </table>
-    </div>
+      <section class="card">
+        <h2>Financial validation</h2>
+        <table>
+          <thead>
+            <tr><th>Check</th><th>Formula</th><th>Calculated</th><th>Reported</th><th>Variance</th><th>Status</th></tr>
+          </thead>
+          <tbody id="checks-body" class="checks-table"></tbody>
+        </table>
+      </section>
 
-    <div class="card">
-      <details>
-        <summary>View raw structured JSON</summary>
-        <pre class="json-view" id="raw-json"></pre>
-      </details>
-    </div>
-  </main>
+      <section class="card">
+        <details>
+          <summary>View raw structured JSON</summary>
+          <pre class="json-view" id="raw-json"></pre>
+        </details>
+      </section>
+    </main>
+  </div>
 
   <script>window.DOCUMENT_NAME = {{ document_name | tojson }};</script>
   <script src="/static/js/app.js"></script>

@@ -1,0 +1,52 @@
+{
+  "document_name": "sample_balance_sheet_not_applicable.png",
+  "document_type": "balance_sheet",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "image/png",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS"
+  },
+  "extracted_data": {
+    "total_assets": {
+      "value": 500000.0,
+      "page_number": 1,
+      "source_text": "Total Assets: 500,000"
+    },
+    "total_liabilities": {
+      "value": 200000.0,
+      "page_number": 1,
+      "source_text": "Total Liabilities: 200,000"
+    },
+    "total_equity": {
+      "value": null,
+      "page_number": null,
+      "source_text": null
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "balance_sheet_equation",
+        "formula": "total_liabilities + total_equity \u2248 total_assets",
+        "operands": {
+          "total_liabilities": 200000.0,
+          "total_equity": null
+        },
+        "calculated_value": null,
+        "reported_value": 500000.0,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      }
+    ],
+    "overall_status": "NOT_APPLICABLE",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T09:52:15.359318+00:00",
+    "processing_time_ms": 240
+  }
+}

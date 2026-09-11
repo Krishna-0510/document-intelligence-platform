@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Intelligence Platform</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Document Intelligence
+      <small>Extraction, validation &amp; API platform</small>
+    </div>
+    <nav>
+      <a href="/">Upload</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/docs">API docs</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h1>Process a document</h1>
+      <p class="lede">Upload an invoice, balance sheet, profit &amp; loss statement, or cash flow statement as a PDF, JPG or PNG (up to 3 pages).</p>
+
+      <form id="upload-form">
+        <div class="upload-row">
+          <div class="field">
+            <label for="document_type">Document type</label>
+            <select id="document_type" name="document_type" required>
+              <option value="invoice">Invoice</option>
+              <option value="balance_sheet">Balance sheet</option>
+              <option value="profit_and_loss">Profit &amp; loss</option>
+              <option value="cash_flow_statement">Cash flow statement</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="file">File (PDF / JPG / PNG)</label>
+            <input type="file" id="file" name="file" accept=".pdf,.jpg,.jpeg,.png" required />
+          </div>
+          <button type="submit" id="submit-btn">Process document</button>
+        </div>
+        <div class="status-line" id="status-line"></div>
+      </form>
+    </div>
+
+    <div class="card" id="result-card" style="display:none;">
+      <h2>Result</h2>
+      <p class="lede" id="result-summary"></p>
+      <p><a id="result-link" href="#">View full result →</a></p>
+    </div>
+  </main>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

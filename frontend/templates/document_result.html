@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document result · Document Intelligence Platform</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Document Intelligence
+      <small>Extraction, validation &amp; API platform</small>
+    </div>
+    <nav>
+      <a href="/">Upload</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/docs">API docs</a>
+    </nav>
+  </header>
+
+  <main>
+    <a href="/dashboard" class="back-link">← Back to dashboard</a>
+
+    <div class="card">
+      <h1 id="doc-title">Loading…</h1>
+      <p class="lede" id="doc-subtitle"></p>
+    </div>
+
+    <div class="card">
+      <h2>Extracted fields</h2>
+      <dl class="kv" id="extracted-fields"></dl>
+    </div>
+
+    <div class="card" id="line-items-card" style="display:none;">
+      <h2>Line items / table</h2>
+      <table id="line-items-table">
+        <thead><tr id="line-items-head"></tr></thead>
+        <tbody id="line-items-body"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Financial validation</h2>
+      <table>
+        <thead>
+          <tr><th>Check</th><th>Formula</th><th>Calculated</th><th>Reported</th><th>Variance</th><th>Status</th></tr>
+        </thead>
+        <tbody id="checks-body" class="checks-table"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <details>
+        <summary>View raw structured JSON</summary>
+        <pre class="json-view" id="raw-json"></pre>
+      </details>
+    </div>
+  </main>
+
+  <script>window.DOCUMENT_NAME = {{ document_name | tojson }};</script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

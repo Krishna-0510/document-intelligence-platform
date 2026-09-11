@@ -1,0 +1,27 @@
+# Render "Blueprint" — connect this repo at render.com/select-repo and Render
+# will read this file automatically. Alternatively, deploy manually as a
+# Docker web service pointing at the repo root (the Dockerfile handles the
+# rest) and set the same env vars in the Render dashboard.
+services:
+  - type: web
+    name: document-intelligence-platform
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        value: sqlite:///./document_intelligence.db
+      - key: LLM_PROVIDER
+        value: openai
+      - key: LLM_API_KEY
+        sync: false        # set the real value in the Render dashboard, never in this file
+      - key: LLM_MODEL
+        value: gpt-4o-mini
+      - key: OCR_ENGINE
+        value: tesseract
+      - key: LOG_LEVEL
+        value: INFO

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · Document Intelligence Platform</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Document Intelligence
+      <small>Extraction, validation &amp; API platform</small>
+    </div>
+    <nav>
+      <a href="/">Upload</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/docs">API docs</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h1>Processed documents</h1>
+      <p class="lede">All documents processed by this service, most recent first.</p>
+      <table id="doc-table">
+        <thead>
+          <tr>
+            <th>Document name</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Processed at</th>
+          </tr>
+        </thead>
+        <tbody id="doc-table-body"></tbody>
+      </table>
+      <div class="empty-state" id="empty-state" style="display:none;">
+        No documents processed yet. <a href="/">Upload one</a> to get started.
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "_scenario": "Unsupported file type upload — e.g. a .txt or .docx file submitted to POST /api/v1/documents/process",
+  "_http_status": 400,
+  "response": {
+    "error": {
+      "code": "UNSUPPORTED_FILE_TYPE",
+      "message": "Unsupported file type 'text/plain'. Only PDF / JPG / PNG are supported."
+    }
+  }
+}
